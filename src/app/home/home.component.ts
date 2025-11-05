@@ -6,13 +6,13 @@ import { AuthService } from "../auth/auth.service";
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  standalone: false
+  standalone: false,
 })
 export class HomeComponent implements OnInit {
   playerName = '';
   isPlayerNameConfirmed = false;
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
     //Nous verrons plus tard comment gérer cela avec des observables
@@ -24,8 +24,9 @@ export class HomeComponent implements OnInit {
     return this.playerName.length < 1;
   }
 
-  navigateToQuiz() {
-    this.router.navigate(['/quiz', this.playerName]);
+  navigateToCategories() {
+    localStorage.setItem('playerName', this.playerName);
+    this.router.navigate(['/categories']);
   }
 
   confirmPseudo() {

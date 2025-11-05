@@ -1,0 +1,22 @@
+<section class="categories">
+  <h2 class="categories_title">Choisis une catégorie</h2>
+
+  <section class="categories_filter">
+    <input
+      type="text"
+      placeholder="Rechercher une catégorie"
+      [(ngModel)]="search"
+      (input)="filterCategories()"
+    />
+    <button class="btn--outline" (click)="resetFilter()">Réinitialiser</button>
+  </section>
+
+  <section class="categories_list">
+    <div
+      *ngFor="let category of filteredCategories"
+      class="categories_card"
+    >
+      <p>{{ category.categoryLabel }}</p>
+    </div>
+  </section>
+</section>
