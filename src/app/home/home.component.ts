@@ -25,8 +25,7 @@ export class HomeComponent implements OnInit {
   }
 
   navigateToCategories() {
-    localStorage.setItem('playerName', this.playerName);
-    this.router.navigate(['/categories']);
+    this.router.navigate(['/categories', this.playerName]);
   }
 
   confirmPseudo() {

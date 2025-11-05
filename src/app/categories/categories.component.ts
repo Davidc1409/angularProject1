@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../shared/services/category.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
@@ -10,13 +11,22 @@ export class CategoriesComponent implements OnInit {
   categories: any[] = [];
   filteredCategories: any[] = [];
   search = '';
+  playerName = '';
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(
+    private categoryService: CategoryService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe((data: any) => {
       this.categories = data;
       this.filteredCategories = data;
+    });
+
+    this.route.params.subscribe((params) => {
+      this.playerName = params['playerName'];
     });
   }
 
@@ -32,7 +42,6 @@ export class CategoriesComponent implements OnInit {
   }
 
   goToQuiz(categoryId: number) {
-    //const playerName = localStorage.getItem('playerName') || 'Joueur';
-    //this.router.navigate(['/quiz', categoryId, playerName]);
+    this.router.navigate(['/quiz', categoryId, this.playerName]);
   }
 }

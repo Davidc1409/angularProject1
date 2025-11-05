@@ -8,13 +8,13 @@
       [(ngModel)]="search"
       (input)="filterCategories()"
     />
-    <button class="btn--outline" (click)="resetFilter()">Réinitialiser</button>
+    <button class="btn--outline" (click)="resetFilter()">Vider</button>
   </section>
 
   <section class="categories_list">
     <div
       *ngFor="let category of filteredCategories"
-      class="categories_card"
+      (click)="goToQuiz(category.id)"
     >
       <p>{{ category.categoryLabel }}</p>
     </div>
