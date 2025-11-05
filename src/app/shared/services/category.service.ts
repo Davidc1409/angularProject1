@@ -12,7 +12,7 @@ export class CategoryService {
     return this.http.get('http://localhost:3000/categories');
   }
 
-  getCategoryById(id: number) {
+  getCategoryById(id: number) :any {
     return this.http.get(`${'http://localhost:3000/categories'}/${id}`);
   }
 }
