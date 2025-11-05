@@ -12,6 +12,7 @@ export class CategoriesComponent implements OnInit {
   filteredCategories: any[] = [];
   search = '';
   playerName = '';
+  selectedCategoryId = "";
 
   constructor(
     private categoryService: CategoryService,
@@ -43,5 +44,9 @@ export class CategoriesComponent implements OnInit {
 
   goToQuiz(categoryId: number) {
     this.router.navigate(['/quiz', categoryId, this.playerName]);
+  }
+  check(event : any){
+    console.log(event)
+    console.log(this.selectedCategoryId)
   }
 }

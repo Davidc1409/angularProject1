@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import { QuizService } from "../../shared/services/quiz.service";
+import { Component, EventEmitter, Input, Output,OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-question',
@@ -9,11 +10,13 @@ import { QuizService } from "../../shared/services/quiz.service";
 })
 export class QuestionComponent implements OnInit {
   quizContent: any[] = this.quizService.quizContent;
-
+  // categoryId: string = this.quizService.categoryId;
+  @Input() categoryId = '';
   constructor(private quizService: QuizService) { }
 
   ngOnInit(): void {
-    this.quizService.getQuizContent();
+    this.quizService.categoryId = this.categoryId;
+    this.quizService.getQuizContentByCategory(this.categoryId);
   }
 
   addAnswer(answer: string, questionId: number) {

@@ -16,7 +16,8 @@
       *ngFor="let category of filteredCategories"
       (click)="goToQuiz(category.id)"
     >
-      <p>{{ category.categoryLabel }}</p>
+      <!-- <p>{{ category.categoryLabel }}</p> -->
+      <button type="button" [(ngModel)]="selectedCategoryId" value={{category.categoryId}} (click)="check($event)">{{category.categoryLabel}}</button>
     </div>
   </section>
 </section>
