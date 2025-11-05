@@ -32,7 +32,7 @@ export class CategoriesComponent implements OnInit {
 
   filterCategories() {
     this.filteredCategories = this.categories.filter((c) =>
-      c.name.toLowerCase().includes(this.search.toLowerCase())
+      c.categoryLabel.toLowerCase().includes(this.search.toLowerCase())
     );
   }
 
