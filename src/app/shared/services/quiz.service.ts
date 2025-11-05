@@ -40,12 +40,14 @@ export class QuizService {
   }
 
   getQuizContentByCategory(categoryId: string) {
+    console.log(categoryId)
     this.http.get(`http://localhost:3000/questions?categoryId=${categoryId}`).subscribe((questions: any) => {
       for (const question of questions) {
         this.http.get(`http://localhost:3000/answers?questionId=${question.id}`).subscribe((answers: any) => {
           this.quizContent.push({
               id: question.id,
               question: question.questionLabel,
+              category: question.categoryId,
               answers
           });
         });

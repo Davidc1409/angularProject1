@@ -33,7 +33,7 @@ export class QuizComponent implements OnInit {
       this.currentCategoryId = params['categoryId'];
       // this.quizService.categoryId =  this.currentCategoryId;
       this.categoryService.getCategoryById(parseInt(this.currentCategoryId)).subscribe((res : any) =>{
-        console.log(res)
+        // console.log(res)
         this.currentCategoryName = res.categoryLabel;
       });
     });
