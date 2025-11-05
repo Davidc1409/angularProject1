@@ -17,7 +17,7 @@
       (click)="goToQuiz(category.id)"
     >
       <!-- <p>{{ category.categoryLabel }}</p> -->
-      <button type="button" [(ngModel)]="selectedCategoryId" value={{category.categoryId}} (click)="check($event)">{{category.categoryLabel}}</button>
+      <button type="button" value={{category.categoryId}} (click)="check($event)">{{category.categoryLabel}}</button>
     </div>
   </section>
 </section>
